@@ -31,3 +31,16 @@ angular_sep, physical_sep = calculate_separation(ra1, dec1, redshift1, ra2, dec2
 print("For the galaxies 14472 and 14482")
 print("Angular separation:", angular_sep)
 print("Physical separation:", physical_sep)
+
+
+
+
+#########################################################################################################################################################
+
+RESULT
+
+For the galaxies 14472 and 14482
+Angular separation: 0d11m25.95826526s
+Physical separation: 0.015365336337538506 Mpc
+
+
