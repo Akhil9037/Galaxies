@@ -1,0 +1,37 @@
+import astropy.units as u
+import astropy.constants as const
+from astropy.cosmology import Planck15
+from astropy.coordinates import SkyCoord
+
+# Define the cosmology
+cosmo = Planck15
+
+# Define the coordinates and redshift of the two galaxies
+galaxy1_ra = 211.715826
+galaxy1_dec = 0.639363
+galaxy1_redshift = 0.114320
+
+galaxy2_ra = 211.775111
+galaxy2_dec = 0.820451
+galaxy2_redshift = 0.129680
+
+# Create SkyCoord objects for the two galaxies
+galaxy1 = SkyCoord(ra=galaxy1_ra*u.deg, dec=galaxy1_dec*u.deg, distance=cosmo.luminosity_distance(galaxy1_redshift))
+galaxy2 = SkyCoord(ra=galaxy2_ra*u.deg, dec=galaxy2_dec*u.deg, distance=cosmo.luminosity_distance(galaxy2_redshift))
+
+# Calculate the comoving distance between the two galaxies
+comoving_distance = galaxy1.separation_3d(galaxy2)
+
+# Calculate the physical separation between two galaxies using Hogg equation
+c = const.c.to(u.km/u.s)
+H0 = cosmo.H0
+d_physical = ((comoving_distance * c) / H0)
+
+# Print the physical separation between the two galaxies
+print("The physical separation between the two galaxies is:", d_physical)
+
+
+
+###################################################################################################################################################
+
+The physical separation between the two galaxies is: 353639.7125741963 Mpc2
